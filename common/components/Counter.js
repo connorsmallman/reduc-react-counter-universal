@@ -1,7 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
 
-const Counter = ({increment, incrementIfOdd, incrementAsync, decrement, counter}) => (
+import React from 'react';
+import type { Action, Dispatch, GetState } from '../actions/types';
+
+type counterArgs = {
+  increment: () => Action,
+  decrement: () => Action,
+  counter: number,
+  incrementIfOdd: () => (dispatch: Dispatch, getState: GetState) => void,
+  incrementAsync: (delay: ?number) => (dispatch: Dispatch) => void
+}
+
+const Counter = ({ increment, incrementIfOdd, incrementAsync, decrement, counter}: counterArgs) => (
   <p>
     Clicked: {counter} times
     {' '}
@@ -14,13 +24,5 @@ const Counter = ({increment, incrementIfOdd, incrementAsync, decrement, counter}
     <button onClick={() => incrementAsync()}>Increment async</button>
   </p>
 )
-
-Counter.propTypes = {
-  increment: PropTypes.func.isRequired,
-  incrementIfOdd: PropTypes.func.isRequired,
-  incrementAsync: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
-  counter: PropTypes.number.isRequired
-}
 
 export default Counter

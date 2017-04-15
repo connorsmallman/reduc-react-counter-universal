@@ -1,21 +1,21 @@
 /* eslint-disable no-console, no-use-before-define */
 
-import path from 'path'
-import Express from 'express'
-import qs from 'qs'
+import path from 'path';
+import Express from 'express';
+import qs from 'qs';
 
-import webpack from 'webpack'
-import webpackDevMiddleware from 'webpack-dev-middleware'
-import webpackHotMiddleware from 'webpack-hot-middleware'
-import webpackConfig from './webpack.config'
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackConfig from './webpack.config';
 
-import React from 'react'
-import { renderToString } from 'react-dom/server'
-import { Provider } from 'react-redux'
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { Provider } from 'react-redux';
 
-import configureStore from './common/store/configureStore'
-import App from './common/containers/App'
-import { fetchCounter } from './common/api/counter'
+import configureStore from './common/store/configureStore';
+import App from './common/containers/App';
+import { fetchCounter } from './common/api/counter';
 
 const app = new Express();
 const port = 3000;
@@ -26,7 +26,7 @@ app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig
 app.use(webpackHotMiddleware(compiler));
 
 // This is fired every time the server side receives a request
-app.use(handleRender)
+app.use(handleRender);
 
 function handleRender(req, res) {
   // Query our mock API asynchronously
@@ -52,8 +52,8 @@ function handleRender(req, res) {
     const finalState = store.getState();
 
     // Send the rendered page back to the client
-    res.send(renderFullPage(html, finalState))
-  })
+    res.send(renderFullPage(html, finalState));
+  });
 }
 
 function renderFullPage(html, preloadedState) {
