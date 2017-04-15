@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Counter from '../components/Counter';
 import * as CounterActions from '../actions';
 import type { Dispatch } from '../actions/types';
-import type { State } from './types';
+import type { State } from '../reducers/types';
 
 const mapStateToProps = (state: State): State => ({
   counter: state.counter

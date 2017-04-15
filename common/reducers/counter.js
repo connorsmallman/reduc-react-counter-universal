@@ -1,6 +1,6 @@
 // @flow
 import type { Action } from '../actions/types';
-import type { State } from '../containers/types';
+import type { State } from './types';
 
 const counter = (state: State = 0, action: Action): State => {
   switch (action.type) {
