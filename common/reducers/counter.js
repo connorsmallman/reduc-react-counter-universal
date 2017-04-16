@@ -1,7 +1,5 @@
 // @flow
-
 import type { Action } from '../actions/types';
-import createReducer from '../lib/createReducer';
 
 const initialState = 0;
 
