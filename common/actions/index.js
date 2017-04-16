@@ -2,16 +2,16 @@
 import type { Action, Dispatch, GetState } from './types';
 
 export const set = (value: number): Action => ({
-  type: 'SET_COUNTER',
+  type: 'SET',
   payload: value
 });
 
 export const increment = (): Action => ({
-  type: 'INCREMENT_COUNTER'
+  type: 'INCREMENT'
 });
 
 export const decrement = (): Action => ({
-  type: 'DECREMENT_COUNTER'
+  type: 'DECREMENT'
 })
 
 export const incrementIfOdd = () => (dispatch: Dispatch, getState: GetState): void => {

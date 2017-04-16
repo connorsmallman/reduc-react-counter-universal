@@ -1,8 +1,8 @@
 // @flow
 
-type Set =  { type: 'SET_COUNTER', payload: number };
-type Increment = { type: 'INCREMENT_COUNTER' };
-type Decrement = { type: 'DECREMENT_COUNTER' };
+type Set =  { type: 'SET', payload: number };
+type Increment = { type: 'INCREMENT' };
+type Decrement = { type: 'DECREMENT' };
 
 export type Action = Set
   | Increment

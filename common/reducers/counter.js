@@ -5,8 +5,15 @@ import createReducer from '../lib/createReducer';
 
 const initialState = 0;
 
-export default createReducer(initialState, {
-  SET_COUNTER: (counter: number, action: Action): number => 0,
-  INCREMENT_COUNTER: (counter: number, action: Action): number => counter + 1,
-  DECREMENT_COUNTER: (counter: number, action: Action): number => counter - 1,
-});
+export default function countReducer(state: number, action: Action): number {
+  switch (action.type) {
+    case 'SET':
+      return action.payload;
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state;
+  }
+}
