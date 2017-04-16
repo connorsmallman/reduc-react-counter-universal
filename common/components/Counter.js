@@ -8,7 +8,7 @@ type counterArgs = {
   decrement: () => Action,
   counter: number,
   incrementIfOdd: () => (dispatch: Dispatch, getState: GetState) => void,
-  incrementAsync: (delay: ?number) => (dispatch: Dispatch) => void
+  incrementAsync: (delay?: number) => (dispatch: Dispatch) => void
 }
 
 const Counter = ({ increment, incrementIfOdd, incrementAsync, decrement, counter}: counterArgs) => (

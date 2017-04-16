@@ -33,10 +33,8 @@ function handleRender(req, res) {
   fetchCounter(apiResult => {
     // Read the counter from the request, if provided
     const params = qs.parse(req.query);
-    const counter = parseInt(params.counter, 10) || apiResult || 0;
-
     // Compile an initial state
-    const preloadedState = { counter };
+    const preloadedState = { counter: parseInt(params.counter, 10) || apiResult || 0 };
 
     // Create a new Redux store instance
     const store = configureStore(preloadedState);
